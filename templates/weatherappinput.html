@@ -1,0 +1,50 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RandomOTP</title>
+</head>
+<body>
+<h1>
+    {{ran1}}
+</h1>
+{% block body %}
+<div>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-md-6">
+        <div>
+            <form method ="post" action="{% url 'weatherlogic' %}">
+                {% csrf_token %}
+                <h5>
+                    <label>Enter a City Name : </label>
+                    <input type="text" name="place" >
+                    <br><br>
+                    <button type="submit" class="btn btn-success btn-lg">check the current weather </button>
+                </h5>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">SECOND HALF
+
+        <br><br><br>
+        <h1> Top Vacation Destinations</h1>
+        <br><br>
+        <h1>
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% else %}
+            <p>City: {{ city }}</p>
+            <p>  Temparature: {{ tempetrature1 }} &#8451;</p>
+            <p> Humidity: {{ humidity }}%</p>
+            {% endif %}
+        </h1>
+
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RandomOTP</title>
+</head>
+<body>
+<h1>
+    {{ran1}}
+</h1>
+{% block body %}
+<div>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-md-6">
+        <div>
+        <form method="post" action="{% url 'random123' %}">
+        {% csrf_token %}
+        <br>
+        <label>Enter Text:</label>
+        <input type="text" name='input' required>
+        <button type="submit" class="btn btn-info">Generate</button>
+    </form>
+            </div>
+    </div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">SECOND HALF
+        <br><br><br>
+        <h1></h1>
+    {{ ran1 }}
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
